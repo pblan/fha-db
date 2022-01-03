@@ -1,0 +1,49 @@
+version: "3.7"    # stand 09/2021
+
+services:
+  phpmyadmin:
+      image: phpmyadmin/phpmyadmin
+      ports:
+        - "8086:80"
+      links:
+        - mysql:db
+      restart: always
+
+  mysql:
+    image: mysql:latest
+    environment:
+      #MYSQL_USER: root
+      #MYSQL_PASSWORD: root
+      MYSQL_ROOT_PASSWORD: root
+    ports:
+      - "3308:3306"
+    volumes:
+      - mysql_data:/var/lib/mysql
+    restart: always
+
+# image: mysql:8.0.17  # Beispiel, falls man eine spezielle Version bevorzugt
+
+  #mariadb:
+  #  image: mariadb:latest
+  #  environment:
+  #    #MYSQL_USER: root
+  #    MYSQL_ROOT_PASSWORD: root
+  #  ports:
+  #    - "3310:3306" 
+  #  volumes:
+  #    - ./mariadb_data:/var/lib/mysql 
+  #  restart: always
+
+  # postgres:
+  #   image: postgres:latest
+  #   environment:
+  #     POSTGRES_USER: root
+  #     POSTGRES_PASSWORD: root
+  #   ports:
+  #     - "5432:5432"
+  #   volumes:
+  #     - ./postgres_data:/var/lib/postgresql/data/
+  #   restart: always
+
+volumes:
+    mysql_data: {}

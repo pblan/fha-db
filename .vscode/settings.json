@@ -1,0 +1,17 @@
+{
+    "sqltools.connections": [
+        {
+            "mysqlOptions": {
+                "authProtocol": "default"
+            },
+            "previewLimit": 50,
+            "server": "localhost",
+            "port": 3310,
+            "driver": "MySQL",
+            "name": "fha-db_mysql",
+            "database": "null",
+            "username": "root",
+            "password": "root"
+        }
+    ]
+}
