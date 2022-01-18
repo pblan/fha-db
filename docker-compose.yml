@@ -2,7 +2,7 @@ version: "3.7"
 
 services:
   phpmyadmin:
-    image: phpmyadmin/phpmyadmin
+    image: phpmyadmin/phpmyadmin:latest
     ports:
       - "8086:80"
     links:
@@ -20,18 +20,17 @@ services:
     volumes:
       - mysql_data:/var/lib/mysql
     restart: always
-    
+
   mariadb:
     image: mariadb:latest
     environment:
       #MYSQL_USER: root
       MYSQL_ROOT_PASSWORD: root
     ports:
-      - "3310:3306" 
+      - "3310:3306"
     volumes:
-      - mariadb_data:/var/lib/mysql 
+      - mariadb_data:/var/lib/mysql
     restart: always
-
   # postgres:
   #   image: postgres:latest
   #   environment:
@@ -44,5 +43,5 @@ services:
   #   restart: always
 
 volumes:
-    mysql_data: {}
-    mariadb_data: {}
+  mysql_data: {}
+  mariadb_data: {}
